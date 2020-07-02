@@ -36,6 +36,7 @@ GEM
     minitest (5.14.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     pg (1.2.3)
@@ -43,6 +44,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.5)
+    puma (4.3.5)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
@@ -110,6 +113,7 @@ DEPENDENCIES
   capybara
   pg
   pry
+  puma
   rack-test
   rake
   require_all
@@ -121,6 +125,9 @@ DEPENDENCIES
   sysrandom
   thin
   tux
+
+RUBY VERSION
+   ruby 2.6.1p33
 
 BUNDLED WITH
    2.1.4
