@@ -31,6 +31,7 @@ GEM
     eventmachine (1.2.7)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    json (2.3.1)
     method_source (1.0.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -111,6 +112,7 @@ DEPENDENCIES
   activerecord
   bcrypt
   capybara
+  json
   pg
   pry
   puma
