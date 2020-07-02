@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'activerecord', require: 'active_record'
+gem 'bcrypt'
 gem 'rake'
 gem 'require_all'
 gem 'sinatra'
@@ -22,7 +23,6 @@ group :test, :development do
   gem 'pry'
   gem 'rack-test'
   gem 'rspec'
-  gem 'shotgun'
   gem 'sqlite3'
   gem 'tux'
 end
