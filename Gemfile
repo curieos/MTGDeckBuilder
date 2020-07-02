@@ -22,3 +22,5 @@ group :test, :development do
   gem 'sqlite3'
   gem 'tux'
 end
+
+ruby '2.6.1'
