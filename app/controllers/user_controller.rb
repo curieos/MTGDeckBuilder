@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserController < ApplicationController
-  get '/user', auth: [:user] do
+  get '/user', auth: ['user'] do
     erb :'/user/index'
   end
 
