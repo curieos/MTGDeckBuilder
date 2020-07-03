@@ -3,6 +3,14 @@
 class User < ActiveRecord::Base
   validates :username, presence: true
   has_secure_password
-  has_many :roles
+  has_and_belongs_to_many :roles
   has_many :decks
+
+  def in_role?(role)
+    in_role = false
+    @roles.each do |current_role|
+      in_role = true if current_role == role
+    end
+    in_role
+  end
 end
