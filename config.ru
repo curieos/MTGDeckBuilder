@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './config/environment'
+require './config/environment'
 
 if ActiveRecord::Base.connection.migration_context.needs_migration?
   raise "Migrations are pending, run 'rake db:migrate'"
