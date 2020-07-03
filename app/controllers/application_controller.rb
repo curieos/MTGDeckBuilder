@@ -10,6 +10,11 @@ class ApplicationController < Sinatra::Base
     use Rack::Session::Pool, expire_after: 2_592_000 # seconds
     use Rack::Protection::RemoteToken
     use Rack::Protection::SessionHijacking
+    set(:auth) do |*roles|
+      condition do
+        redirect '/login', 303 unless logged_in? && roles.any? { |role| current_user.in_role? role }
+      end
+    end
   end
 
   get '/' do
