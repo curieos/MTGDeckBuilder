@@ -30,6 +30,14 @@ class UserController < ApplicationController
     erb :'/user/decks/index'
   end
 
+  post '/user/decks', auth: ['user'] do
+    deck = Deck.create(params[:deck])
+    deck.user = current_user
+    deck.save
+
+    redirect '/user/decks'
+  end
+
   get '/user/decks/new', auth: ['user'] do
     erb :'/user/decks/new'
   end
