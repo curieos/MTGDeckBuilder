@@ -23,8 +23,10 @@
 				<div class="card-body">
 					<%= card.name %>
 				</div>
-				<button type="button" class="btn btn-danger float-right"
-					onclick="location.href='/user/decks/<%= @deck.id %>/<%= card.id %>'">Remove</button>
+				<form action="/user/decks/<%= @deck.id %>/<%= card.id %>" method="POST">
+					<input id="hidden" type="hidden" name="_method" value="DELETE">
+					<button type="submit" class="btn btn-danger">Remove</button>
+				</form>
 			</a>
 		</div>
 		<% end %>

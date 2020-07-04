@@ -67,4 +67,13 @@ class UserController < ApplicationController
 
     redirect "/user/decks/#{params[:id]}/edit"
   end
+
+  delete '/user/decks/:id/:card_id', auth: ['user'] do
+    deck = current_user.decks.find(params[:id])
+    card = deck.cards.find(params[:card_id])
+    deck.cards.delete(card)
+    deck.save
+
+    redirect "/user/decks/#{params[:id]}/edit"
+  end
 end
