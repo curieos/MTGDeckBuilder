@@ -2,6 +2,11 @@
 
 require 'json'
 
+puts 'Creating roles...'
+Role.where(name: 'user').first_or_create
+Role.where(name: 'admin').first_or_create
+
+puts 'Adding cards...'
 puts 'Parsing file...'
 card_file = File.read('cards/default-cards.json')
 cards_list = JSON.parse(card_file)
