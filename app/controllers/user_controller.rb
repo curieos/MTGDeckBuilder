@@ -7,23 +7,6 @@ class UserController < ApplicationController
     erb :'/user/index'
   end
 
-  get '/login' do
-    erb :'/user/login'
-  end
-
-  post '/login' do
-    user = User.find_by(username: params[:username])
-    session[:user_id] = user.id if user&.authenticate(params[:password])
-
-    redirect '/user'
-  end
-
-  get '/logout' do
-    session.clear
-
-    redirect '/login'
-  end
-
   get '/user/decks', auth: ['user'] do
     @decks = current_user.decks
 
