@@ -47,4 +47,10 @@ class UserController < ApplicationController
 
     erb :'/user/decks/show'
   end
+
+  get '/user/decks/:id/edit', auth: ['user'] do
+    @deck = current_user.decks.find(params[:id])
+
+    erb :'/user/decks/edit'
+  end
 end
