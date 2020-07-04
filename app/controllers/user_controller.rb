@@ -48,6 +48,13 @@ class UserController < ApplicationController
     erb :'/user/decks/show'
   end
 
+  delete '/user/decks/:id', auth: ['user'] do
+    deck = current_user.decks.find(params[:id])
+    deck.destroy
+
+    redirect '/user/decks'
+  end
+
   get '/user/decks/:id/edit', auth: ['user'] do
     @deck = current_user.decks.find(params[:id])
 
