@@ -59,4 +59,12 @@ class UserController < ApplicationController
 
     erb :'/user/decks/add'
   end
+
+  post '/user/decks/:id/add', auth: ['user'] do
+    deck = current_user.decks.find(params[:id])
+    deck.cards << Card.find(params[:card_id])
+    deck.save
+
+    redirect "/user/decks/#{params[:id]}/edit"
+  end
 end
