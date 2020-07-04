@@ -61,7 +61,9 @@ class UserController < ApplicationController
   end
 
   get '/user/decks/:id/add', auth: ['user'] do
-    ungrouped_cards = Card.where('name like ?', "%#{params[:card_name]}%")
+    ungrouped_cards = []
+    ungrouped_cards = Card.where('name ilike ?', "%#{params[:card_name]}%") if settings.environment == :production
+    ungrouped_cards = Card.where('name like ?', "%#{params[:card_name]}%") if settings.environment == :development
     @cards = []
     ungrouped_cards.each do |card|
       @cards << card unless @cards.find { |c| c.name == card.name }
