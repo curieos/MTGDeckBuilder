@@ -23,12 +23,12 @@
 						<% if !@user.decks.blank? %>
 						<% for deck in @user.decks %>
 						<div class="col-sm-6">
-							<div class="card">
+							<a href="/user/decks/<%= deck.id %>" class="card">
 								<img src="/images/Magic_card_back.jpg" class="card-img-top" alt="MTG Card Back">
 								<div class="card-body">
 									<%= deck.name %>
 								</div>
-							</div>
+							</a>
 						</div>
 						<% end %>
 						<% end %>
