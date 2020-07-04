@@ -23,4 +23,10 @@ class UserController < ApplicationController
 
     redirect '/login'
   end
+
+  get '/user/decks', auth: ['user'] do
+    @decks = current_user.decks
+
+    erb :'/user/decks/index'
+  end
 end
