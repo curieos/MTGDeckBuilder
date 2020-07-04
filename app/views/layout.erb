@@ -18,13 +18,18 @@
 				</li>
 			</ul>
 			<ul class="navbar-nav">
+				<% if logged_in? %>
 				<li class="nav-item">
-					<% if logged_in? %>
 					<a class="nav-link" href="/user">Hello <%= current_user&.username %></a>
-					<% else %>
-					<a class="nav-link" href="/login">Login</a>
-					<% end %>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/logout">Logout</a>
+				</li>
+				<% else %>
+				<li class="nav-item">
+					<a class="nav-link" href="/login">Login</a>
+				</li>
+				<% end %>
 			</ul>
 		</nav>
 	</header>
