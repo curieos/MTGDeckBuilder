@@ -61,7 +61,11 @@ class UserController < ApplicationController
   end
 
   get '/user/decks/:id/add', auth: ['user'] do
-    @cards = Card.select('cards.*').group(:name).where('name like ?', "%#{params[:card_name]}%")
+    ungrouped_cards = Card.where('name like ?', "%#{params[:card_name]}%")
+    @cards = []
+    ungrouped_cards.each do |card|
+      @cards << card unless @cards.find { |c| c.name == card.name }
+    end
 
     erb :'/user/decks/add'
   end
