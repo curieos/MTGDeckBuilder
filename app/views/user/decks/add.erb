@@ -1,0 +1,22 @@
+<div class="card-header">
+	<h1>Searching for <%= params[:card_name] %></h1>
+</div>
+<div class="card-body">
+	<div class="row">
+		<% if !@cards.blank? %>
+		<% for card in @cards %>
+		<form action="/user/decks/<%= @deck.id %>/add" method="post">
+			<div class="col-sm-3 col-md-2 mb-2">
+				<input id="hidden" type="hidden" name="card_id" value="<%= card.id %>">
+				<a type="submit" href="#" class="card">
+					<img src="<%= card.image_uri %>" class="card-img-top" alt="<%= card.name %>">
+					<div class="card-body">
+						<%= card.name %>
+					</div>
+				</a>
+			</div>
+		</form>
+		<% end %>
+		<% end %>
+	</div>
+</div>

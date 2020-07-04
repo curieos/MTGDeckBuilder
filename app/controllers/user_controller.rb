@@ -53,4 +53,10 @@ class UserController < ApplicationController
 
     erb :'/user/decks/edit'
   end
+
+  get '/user/decks/:id/add', auth: ['user'] do
+    @cards = Card.where('name like ?', "%#{params[:card_name]}%").group(:name)
+
+    erb :'/user/decks/add'
+  end
 end
