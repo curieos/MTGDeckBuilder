@@ -1,3 +1,16 @@
 <div class="card-body">
-	
+	<div class="row">
+		<% if !@decks.blank? %>
+		<% for deck in @decks %>
+		<div class="col-sm-3">
+			<a href="/decks/<%= deck.id %>" class="card">
+				<img src="/images/Magic_card_back.jpg" class="card-img-top" alt="MTG Card Back">
+				<div class="card-body">
+					<%= deck.name %>
+				</div>
+			</a>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
 </div>
