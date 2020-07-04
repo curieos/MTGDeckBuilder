@@ -1,3 +1,40 @@
+<div class="card-header">
+	<h1><%= @user&.username %></h1>
+</div>
 <div class="card-body">
-	<h1 class="card-title"><%= @user&.username %></h1>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="card">
+				<div class="card-header">
+					<h2>Info</h2>
+				</div>
+				<div class="card-body">
+
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="card">
+				<div class="card-header">
+					<h2>Decks</h2>
+				</div>
+				<div class="row">
+					<div class="card-body">
+						<% if !@user.decks.blank? %>
+						<% for deck in @user.decks %>
+						<div class="col-sm-6">
+							<div class="card">
+								<img src="/images/Magic_card_back.jpg" class="card-img-top" alt="MTG Card Back">
+								<div class="card-body">
+									<%= deck.name %>
+								</div>
+							</div>
+						</div>
+						<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
