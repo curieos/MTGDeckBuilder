@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_233719) do
+ActiveRecord::Schema.define(version: 2020_07_03_235945) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.string "scryfall_id"
     t.string "image_uri"
+  end
+
+  create_table "cards_decks", id: false, force: :cascade do |t|
+    t.integer "deck_id", null: false
+    t.integer "card_id", null: false
   end
 
   create_table "decks", force: :cascade do |t|
