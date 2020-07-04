@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   def in_role?(role)
     in_role = false
-    @roles&.each do |current_role|
+    roles&.each do |current_role|
       in_role = true if current_role.name == role
     end
     in_role
