@@ -6,4 +6,10 @@ class DecksController < ApplicationController
 
     erb :'/decks/index'
   end
+
+  get '/decks/:id' do
+    @deck = Deck.find(params[:id])
+
+    erb :'/decks/show'
+  end
 end
