@@ -19,6 +19,10 @@
 				<div class="card-body">
 					<%= deck.name %>
 				</div>
+				<form action="/user/decks/<%= deck.id %>" method="POST">
+					<input id="hidden" type="hidden" name="_method" value="DELETE">
+					<button type="submit" class="btn btn-danger">Delete</button>
+				</form>
 			</a>
 		</div>
 		<% end %>
