@@ -35,10 +35,16 @@ class UserController < ApplicationController
     deck.user = current_user
     deck.save
 
-    redirect '/user/decks'
+    redirect "/user/decks/#{deck.id}"
   end
 
   get '/user/decks/new', auth: ['user'] do
     erb :'/user/decks/new'
+  end
+
+  get '/user/decks/:id', auth: ['user'] do
+    @deck = current_user.decks.find(params[:id])
+
+    erb :'/user/decks/show'
   end
 end
