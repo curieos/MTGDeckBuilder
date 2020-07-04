@@ -7,7 +7,7 @@ class UserController < ApplicationController
     erb :'/user/index'
   end
 
-  get 'user/edit' do
+  get '/user/edit', auth: ['user'] do
     erb :'/user/edit'
   end
 
