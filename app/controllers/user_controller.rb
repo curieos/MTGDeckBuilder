@@ -29,4 +29,8 @@ class UserController < ApplicationController
 
     erb :'/user/decks/index'
   end
+
+  get '/user/decks/new', auth: ['user'] do
+    erb :'/user/decks/new'
+  end
 end
