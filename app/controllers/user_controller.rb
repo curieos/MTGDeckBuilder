@@ -7,6 +7,10 @@ class UserController < ApplicationController
     erb :'/user/index'
   end
 
+  get 'user/edit' do
+    erb :'/user/edit'
+  end
+
   get '/user/decks', auth: ['user'] do
     @decks = current_user.decks
 
