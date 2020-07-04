@@ -8,7 +8,19 @@ class UserController < ApplicationController
   end
 
   get '/user/edit', auth: ['user'] do
+    @user = current_user
+
     erb :'/user/edit'
+  end
+
+  patch '/user', auth: ['user'] do
+    user = current_user
+    user.update(username: params[:username])
+    if params[:new_password]
+      user.update(password: params[:new_password]) if user&.authenticate(params[:current_password])
+    end
+
+    redirect '/user'
   end
 
   get '/user/decks', auth: ['user'] do
