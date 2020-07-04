@@ -2,6 +2,8 @@
 
 class UserController < ApplicationController
   get '/user', auth: ['user'] do
+    @user = current_user
+
     erb :'/user/index'
   end
 
