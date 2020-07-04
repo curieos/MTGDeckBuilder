@@ -1,3 +1,19 @@
+<div class="card-header">
+	<h1><%= @deck.name %></h1>
+</div>
 <div class="card-body">
-
+	<div class="row">
+		<% if !@deck.cards.blank? %>
+		<% for card in @deck.cards %>
+		<div class="col-sm-6">
+			<a href="#" class="card">
+				<img src="<%= card.image_uri %>" class="card-img-top" alt="<%= card.name %">>
+				<div class="card-body">
+					<%= card.name %>
+				</div>
+			</a>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
 </div>
