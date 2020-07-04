@@ -14,7 +14,7 @@
 	<div class="row">
 		<% if !@deck.cards.blank? %>
 		<% for card in @deck.cards %>
-		<div class="col-sm-6">
+		<div class="col-md-3 col-sm-2">
 			<a href="#" class="card">
 				<img src="<%= card.image_uri %>" class="card-img-top" alt="<%= card.name %>">
 				<div class="card-body">
