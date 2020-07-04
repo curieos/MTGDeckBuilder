@@ -1,6 +1,32 @@
 <div class="card-header">
-	<h1>Editing <%= @deck.name %></h1>
+	<div class="row">
+		<div class="col">
+			<h1>Editing <%= @deck.name %></h1>
+		</div>
+		<div class="col"></div>
+		<div class="col">
+			<form class="form-inline my-2 my-lg-0" method="POST" action="/user/decks/<%= @deck.id %>/add">
+				<input class="form-control mr-sm-2" name="card[name]" type="search" placeholder="Card Name" aria-label="Card Name">
+				<button class="btn btn-primary my-2 my-sm-0" type="submit">Add Card</button>
+			</form>
+		</div>
+	</div>
 </div>
 <div class="card-body">
-
+	<div class="row">
+		<% if !@deck.cards.blank? %>
+		<% for card in @deck.cards %>
+		<div class="col-md-3 col-sm-2">
+			<a href="#" class="card">
+				<img src="<%= card.image_uri %>" class="card-img-top" alt="<%= card.name %>">
+				<div class="card-body">
+					<%= card.name %>
+				</div>
+				<button type="button" class="btn btn-danger float-right"
+					onclick="location.href='/user/decks/<%= @deck.id %>/<%= card.id %>'">Remove</button>
+			</a>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
 </div>
