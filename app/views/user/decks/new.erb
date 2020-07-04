@@ -5,7 +5,7 @@
 	<form method="POST" action="/user/decks">
 		<div class="form-group">
 			<label for="deck_name">Deck Name</label>
-			<input type="text" class="form-control" id="deck_name" name="deck[name]">
+			<input type="text" class="form-control" id="deck_name" name="deck[name]" required minlength="3">
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
