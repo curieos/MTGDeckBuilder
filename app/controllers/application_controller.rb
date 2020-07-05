@@ -29,6 +29,10 @@ class ApplicationController < Sinatra::Base
     user = User.create(username: params[:username], password: params[:password])
 
     if user.valid?
+      role = Role.find_by(name: 'user')
+      user.roles << role
+      user.save
+
       session[:user_id] = user.id
       redirect '/user'
     else
